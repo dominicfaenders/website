@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>treuhans GmbH — Briefpapier DIN A4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #0a0e0d;
+        --forest: #121816;
+        --gold: #b8a078;
+        --gold-light: #d4c4a8;
+        --muted: #6f6a63;
+        --line: #e8e4dc;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        background: #d8d4cc;
+      }
+
+      body {
+        font-family: "DM Sans", system-ui, sans-serif;
+        color: var(--ink);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .sheet {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 12mm auto;
+        background: #fff;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 8px 32px rgba(10, 14, 13, 0.12);
+      }
+
+      .header {
+        padding: 18mm 25mm 0;
+      }
+
+      .header-top {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16mm;
+      }
+
+      .logo img {
+        display: block;
+        width: 46mm;
+        height: auto;
+      }
+
+      .claim {
+        max-width: 58mm;
+        text-align: right;
+        font-size: 8.5pt;
+        line-height: 1.45;
+        font-weight: 500;
+        color: var(--muted);
+        letter-spacing: 0.01em;
+      }
+
+      .header-rule {
+        margin-top: 10mm;
+        height: 0.45mm;
+        background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 42%, transparent 100%);
+      }
+
+      .sender-line {
+        margin-top: 6mm;
+        font-size: 6.5pt;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .content {
+        flex: 1;
+        padding: 14mm 25mm 0;
+        font-size: 10.5pt;
+        line-height: 1.55;
+      }
+
+      .recipient {
+        min-height: 30mm;
+        margin-bottom: 10mm;
+        color: var(--ink);
+      }
+
+      .recipient .placeholder,
+      .meta .placeholder,
+      .body .placeholder {
+        color: #b8b2a8;
+      }
+
+      .meta {
+        margin-bottom: 8mm;
+        font-size: 10.5pt;
+      }
+
+      .meta p + p {
+        margin-top: 1.5mm;
+      }
+
+      .subject {
+        margin-bottom: 8mm;
+        font-weight: 600;
+        font-size: 11pt;
+      }
+
+      .body p + p {
+        margin-top: 4.5mm;
+      }
+
+      .closing {
+        margin-top: 14mm;
+      }
+
+      .signature-space {
+        margin-top: 16mm;
+        min-height: 18mm;
+      }
+
+      .footer {
+        margin-top: auto;
+        padding: 0 25mm 14mm;
+      }
+
+      .footer-rule {
+        height: 0.25mm;
+        background: var(--line);
+        margin-bottom: 4mm;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr;
+        gap: 6mm;
+        font-size: 7pt;
+        line-height: 1.5;
+        color: var(--muted);
+      }
+
+      .footer-grid strong {
+        display: block;
+        margin-bottom: 1mm;
+        font-size: 7pt;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--forest);
+      }
+
+      .footer-legal {
+        margin-top: 4mm;
+        font-size: 6.5pt;
+        line-height: 1.45;
+        color: #9a948c;
+      }
+
+      .screen-hint {
+        max-width: 210mm;
+        margin: 0 auto 8mm;
+        padding: 0 6mm;
+        font-family: "DM Sans", system-ui, sans-serif;
+        font-size: 10pt;
+        color: #4a4540;
+        text-align: center;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      @media print {
+        html,
+        body {
+          background: #fff;
+        }
+
+        .sheet {
+          margin: 0;
+          box-shadow: none;
+          page-break-after: always;
+        }
+
+        .screen-hint {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p class="screen-hint">
+      Drucken oder als PDF speichern (DIN A4, Ränder: Keine). Platzhaltertext vor dem Druck ersetzen.
+    </p>
+
+    <article class="sheet" aria-label="Briefpapier treuhans GmbH">
+      <header class="header">
+        <div class="header-top">
+          <div class="logo">
+            <img src="../treuhans.svg" alt="treuhans" />
+          </div>
+          <p class="claim">Werte schaffen mit Immobilien</p>
+        </div>
+        <div class="header-rule" aria-hidden="true"></div>
+        <p class="sender-line">treuhans GmbH · Burgplatz 2 · 04109 Leipzig</p>
+      </header>
+
+      <main class="content">
+        <address class="recipient">
+          <span class="placeholder">Firma / Name</span><br />
+          <span class="placeholder">Straße und Hausnummer</span><br />
+          <span class="placeholder">PLZ Ort</span>
+        </address>
+
+        <div class="meta">
+          <p>Leipzig, <span class="placeholder">Datum</span></p>
+        </div>
+
+        <p class="subject">
+          <span class="placeholder">Betreffzeile</span>
+        </p>
+
+        <div class="body">
+          <p><span class="placeholder">Sehr geehrte Damen und Herren,</span></p>
+          <p>
+            <span class="placeholder"
+              >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
+              lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</span
+            >
+          </p>
+          <p>
+            <span class="placeholder"
+              >Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod
+              non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non
+              fermentum diam nisl sit amet erat.</span
+            >
+          </p>
+          <p class="closing"><span class="placeholder">Mit freundlichen Grüßen</span></p>
+          <div class="signature-space" aria-hidden="true"></div>
+          <p><span class="placeholder">Name · Funktion</span></p>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-rule" aria-hidden="true"></div>
+        <div class="footer-grid">
+          <div>
+            <strong>Kontakt</strong>
+            Burgplatz 2<br />
+            04109 Leipzig<br />
+            hallo@treuhans.de
+          </div>
+          <div>
+            <strong>Telefon</strong>
+            0341 56 63 87 00<br />
+            www.treuhans.de
+          </div>
+          <div>
+            <strong>Register</strong>
+            Amtsgericht Leipzig<br />
+            HRB 44074<br />
+            Geschäftsführung: Moritz Ertl, Dominic Fänders
+          </div>
+        </div>
+        <p class="footer-legal">
+          treuhans GmbH · Gesellschaft mit beschränkter Haftung · Sitz: Leipzig
+        </p>
+      </footer>
+    </article>
+  </body>
+</html>
