@@ -18,6 +18,14 @@ export const metadata: Metadata = {
   },
   description:
     "treuhans — dein Partner für Asset Management und Investment. Werte bewahren, Potenziale heben.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 export default function RootLayout({
