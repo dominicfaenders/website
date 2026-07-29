@@ -11,9 +11,9 @@ export default function Hero() {
           alt={alt.leipzigSkyline}
           fill
           priority
-          quality={92}
+          quality={80}
           className="object-cover object-center"
-          sizes="(min-width: 120rem) 120rem, 100vw"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-ink/60" />
 
