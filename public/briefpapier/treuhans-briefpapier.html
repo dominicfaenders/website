@@ -16,7 +16,7 @@
         --forest: #121816;
         --gold: #b8a078;
         --gold-light: #d4c4a8;
-        --muted: #6f6a63;
+        --muted: #515154;
         --line: #e8e4dc;
       }
 
@@ -55,25 +55,29 @@
 
       .header-top {
         display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: 16mm;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.5mm;
+        width: 46mm;
       }
 
       .logo img {
         display: block;
-        width: 46mm;
+        width: 100%;
         height: auto;
       }
 
       .claim {
-        max-width: 58mm;
-        text-align: right;
-        font-size: 8.5pt;
-        line-height: 1.45;
-        font-weight: 500;
+        display: block;
+        width: 98%;
+        text-align: left;
+        font-size: 7.5pt;
+        line-height: 1.2;
+        font-weight: 700;
         color: var(--muted);
-        letter-spacing: 0.01em;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+        overflow: hidden;
       }
 
       .header-rule {
@@ -106,7 +110,7 @@
       .recipient .placeholder,
       .meta .placeholder,
       .body .placeholder {
-        color: #b8b2a8;
+        color: #6e6e73;
       }
 
       .meta {
@@ -171,7 +175,7 @@
         margin-top: 4mm;
         font-size: 6.5pt;
         line-height: 1.45;
-        color: #9a948c;
+        color: #6e6e73;
       }
 
       .screen-hint {
@@ -265,6 +269,7 @@
         <div class="footer-grid">
           <div>
             <strong>Kontakt</strong>
+            treuhans GmbH<br />
             Burgplatz 2<br />
             04109 Leipzig<br />
             hallo@treuhans.de
@@ -278,12 +283,9 @@
             <strong>Register</strong>
             Amtsgericht Leipzig<br />
             HRB 44074<br />
-            Geschäftsführung: Moritz Ertl, Dominic Fänders
+            Geschäftsführung: Moritz Ertl, Dominic Fänders, Ferdinand Löbel
           </div>
         </div>
-        <p class="footer-legal">
-          treuhans GmbH · Gesellschaft mit beschränkter Haftung · Sitz: Leipzig
-        </p>
       </footer>
     </article>
   </body>

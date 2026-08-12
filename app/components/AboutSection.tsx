@@ -20,7 +20,7 @@ const stats = [
   { value: "Leipzig", label: "Sitz" },
   { value: "11", label: "immobilienbegeisterte Köpfe" },
   { value: "100", label: "Jahre gemeinsames Immobilienwissen" },
-  { value: "> 20 Mio. €", label: "Entwickeltes Volumen" },
+  { value: "> 25 Mio. €", label: "Entwickeltes Volumen" },
 ] as const;
 
 export default function AboutSection() {

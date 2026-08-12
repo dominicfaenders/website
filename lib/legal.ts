@@ -7,10 +7,10 @@ export const legal = {
   registerCourt: "Amtsgericht Leipzig",
   registerNumber: "HRB 44074",
   vatId: "DE455593227",
-  managingDirectors: ["Moritz Ertl", "Dominic Fänders"],
+  managingDirectors: ["Moritz Ertl", "Dominic Fänders", "Ferdinand Löbel"],
   businessPurpose:
     "Die Immobilienverwaltung im Sinne des Wohnungseigentumsgesetzes, Sondereigentums- und Mietverwaltung sowie alle damit einhergehenden Tätigkeiten; der Erwerb, die Verwaltung, die Veräußerung und die Vermittlung von Immobilien sowie damit zusammenhängende Dienstleistungen im Bereich Asset Management und Investment.",
-  contentResponsible: "Moritz Ertl, Dominic Fänders",
+  contentResponsible: "Moritz Ertl, Dominic Fänders, Ferdinand Löbel",
   privacyAuthority: {
     name: "Sächsischer Datenschutzbeauftragter",
     address: "Devrientstraße 5, 01067 Dresden",

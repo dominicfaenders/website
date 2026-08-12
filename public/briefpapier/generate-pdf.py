@@ -20,8 +20,8 @@ INK = colors.HexColor("#0a0e0d")
 FOREST = colors.HexColor("#121816")
 GOLD = colors.HexColor("#b8a078")
 GOLD_LIGHT = colors.HexColor("#d4c4a8")
-MUTED = colors.HexColor("#6f6a63")
-PLACEHOLDER = colors.HexColor("#b8b2a8")
+MUTED = colors.HexColor("#515154")
+PLACEHOLDER = colors.HexColor("#6e6e73")
 LINE = colors.HexColor("#e8e4dc")
 
 
@@ -39,15 +39,21 @@ def draw_header_footer(c: canvas.Canvas, doc):
     drawing.scale(scale, scale)
     renderPDF.draw(drawing, c, margin_x, top - drawing.height)
 
-    # Claim
-    c.setFont("Helvetica", 8.5)
-    c.setFillColor(MUTED)
+    # Claim — match logo width (a hair narrower)
     claim = "Werte schaffen mit Immobilien"
-    claim_w = c.stringWidth(claim, "Helvetica", 8.5)
-    c.drawRightString(w - margin_x, top - 4 * mm, claim)
+    claim_target = logo_w * 0.98
+    claim_size = 8.5
+    claim_font = "Helvetica-Bold"
+    claim_w = c.stringWidth(claim, claim_font, claim_size)
+    if claim_w > 0:
+        claim_size = claim_size * (claim_target / claim_w)
+    c.setFont(claim_font, claim_size)
+    c.setFillColor(MUTED)
+    claim_y = top - drawing.height - 4 * mm
+    c.drawString(margin_x, claim_y, claim)
 
     # Gold rule
-    y_rule = top - drawing.height - 10 * mm
+    y_rule = claim_y - 6 * mm
     c.setStrokeColor(GOLD)
     c.setLineWidth(0.45 * mm)
     c.line(margin_x, y_rule, w - margin_x, y_rule)
@@ -69,6 +75,7 @@ def draw_header_footer(c: canvas.Canvas, doc):
         (
             "KONTAKT",
             [
+                "treuhans GmbH",
                 "Burgplatz 2",
                 "04109 Leipzig",
                 "hallo@treuhans.de",
@@ -86,7 +93,7 @@ def draw_header_footer(c: canvas.Canvas, doc):
             [
                 "Amtsgericht Leipzig",
                 "HRB 44074",
-                "Geschäftsführung: Moritz Ertl, Dominic Fänders",
+                "Geschäftsführung: Moritz Ertl, Dominic Fänders, Ferdinand Löbel",
             ],
         ),
     ]
@@ -101,14 +108,6 @@ def draw_header_footer(c: canvas.Canvas, doc):
         c.setFillColor(MUTED)
         for j, line in enumerate(lines):
             c.drawString(x, y - (j + 1) * 3.5 * mm, line)
-
-    c.setFont("Helvetica", 6.5)
-    c.setFillColor(colors.HexColor("#9a948c"))
-    c.drawString(
-        margin_x,
-        12 * mm,
-        "treuhans GmbH · Gesellschaft mit beschränkter Haftung · Sitz: Leipzig",
-    )
 
 
 def build_pdf():

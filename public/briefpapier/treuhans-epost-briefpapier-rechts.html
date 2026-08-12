@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>treuhans GmbH — E-POST Briefpapier DIN A4 — Logo rechts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #1d1d1f;
+        --muted: #6e6e73;
+        --line: rgba(0, 0, 0, 0.12);
+        --subtle: #f5f5f7;
+        --placeholder: #8e8e93;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        background: #e8e8ed;
+      }
+
+      body {
+        font-family: "DM Sans", Helvetica, Arial, sans-serif;
+        color: var(--ink);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .screen-hint {
+        max-width: 210mm;
+        margin: 10mm auto 6mm;
+        padding: 0 8mm;
+        font-size: 10pt;
+        line-height: 1.45;
+        color: #424245;
+        text-align: center;
+      }
+
+      .screen-hint strong {
+        color: var(--ink);
+      }
+
+      /* DIN A4 */
+      .sheet {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto 12mm;
+        background: #fff;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      /*
+        E-POST / DIN 5008 Form B — Adressfenster-Zone
+        Empfängerfeld: links 20 mm, oben 45 mm, 85 × 45 mm
+        Absenderzeile darüber im Fenster
+      */
+      .logo-area {
+        position: absolute;
+        top: 12mm;
+        right: 20mm;
+        left: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2.5mm;
+        width: 42mm;
+      }
+
+      .logo-area img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .claim {
+        display: block;
+        width: 98%;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+        font-size: 6.85pt;
+        line-height: 1.2;
+        font-weight: 700;
+        color: var(--muted);
+        white-space: nowrap;
+        letter-spacing: -0.01em;
+        overflow: hidden;
+      }
+
+      .sheet.continuation .logo-area {
+        width: 36mm;
+      }
+
+      .sheet.continuation .claim {
+        font-size: 5.9pt;
+      }
+
+      .address-window {
+        position: absolute;
+        top: 45mm;
+        left: 20mm;
+        width: 85mm;
+        height: 45mm;
+        /* Keine Rahmenfarbe im Druck — nur zur Bildschirmhilfe */
+      }
+
+      .address-window.guide {
+        outline: 0.2mm dashed #c7c7cc;
+        outline-offset: 1mm;
+      }
+
+      .sender-line {
+        font-size: 6.5pt;
+        line-height: 1.3;
+        color: var(--muted);
+        letter-spacing: 0.01em;
+        border-bottom: 0.2mm solid var(--ink);
+        padding-bottom: 1mm;
+        margin-bottom: 2.5mm;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .recipient {
+        font-size: 10pt;
+        line-height: 1.35;
+        font-style: normal;
+        color: var(--ink);
+        font-weight: 400;
+      }
+
+      .recipient .ph {
+        color: var(--placeholder);
+      }
+
+      .fold-marks {
+        position: absolute;
+        left: 0;
+        width: 4mm;
+        border-top: 0.15mm solid #d2d2d7;
+      }
+
+      .fold-1 {
+        top: 105mm;
+      }
+      .fold-2 {
+        top: 210mm;
+      }
+
+      .letter-body {
+        position: absolute;
+        top: 105mm;
+        left: 20mm;
+        right: 20mm;
+        bottom: 28mm;
+        font-size: 10.5pt;
+        line-height: 1.5;
+        text-align: left;
+      }
+
+      .meta {
+        margin-bottom: 7mm;
+      }
+
+      .subject {
+        font-weight: 600;
+        margin-bottom: 7mm;
+      }
+
+      .letter-body .ph {
+        color: var(--placeholder);
+      }
+
+      .letter-body p + p {
+        margin-top: 4mm;
+      }
+
+      .closing {
+        margin-top: 10mm;
+      }
+
+      .sig {
+        margin-top: 14mm;
+        min-height: 16mm;
+      }
+
+      .footer {
+        position: absolute;
+        left: 20mm;
+        right: 20mm;
+        bottom: 8mm;
+      }
+
+      .footer-rule {
+        height: 0.25mm;
+        background: var(--line);
+        margin-bottom: 3.5mm;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0;
+        column-gap: 0;
+        font-size: 6.5pt;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+
+      .footer-grid strong {
+        display: block;
+        margin-bottom: 0.8mm;
+        font-size: 6.5pt;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+
+      .footer-legal {
+        margin-top: 3mm;
+        font-size: 6pt;
+        color: #6e6e73;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      @media print {
+        html,
+        body {
+          background: #fff;
+        }
+
+        .screen-hint {
+          display: none;
+        }
+
+        .sheet {
+          margin: 0;
+          box-shadow: none;
+        }
+
+        .address-window.guide {
+          outline: none;
+        }
+
+        .fold-marks {
+          border-color: #c7c7cc;
+        }
+      }
+      .sheet.continuation .header-rule {
+        position: absolute;
+        top: 34mm;
+        left: 20mm;
+        right: 20mm;
+        height: 0.25mm;
+        background: var(--line);
+      }
+
+      .sheet.continuation .letter-body {
+        top: 42mm;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="screen-hint">
+      <strong>E-POST / DIN 5008 Form B</strong> — Seite 1 mit Adressfenster, Seite 2 nur
+      Fortsetzungskopf (ohne Absenderzeile). Als PDF speichern (A4, ohne Ränder).
+    </p>
+
+    <article class="sheet" aria-label="E-POST Briefpapier treuhans GmbH — Seite 1">
+      <div class="logo-area">
+        <img src="../treuhans.svg" alt="treuhans" />
+        <p class="claim">Werte schaffen mit Immobilien</p>
+      </div>
+
+      <div class="fold-marks fold-1" aria-hidden="true"></div>
+      <div class="fold-marks fold-2" aria-hidden="true"></div>
+
+      <div class="address-window guide">
+        <p class="sender-line">treuhans GmbH · Burgplatz 2 · 04109 Leipzig</p>
+        <address class="recipient">
+          <span class="ph">Firma / Name</span><br />
+          <span class="ph">z. Hd. …</span><br />
+          <span class="ph">Straße und Hausnummer</span><br />
+          <span class="ph">PLZ Ort</span>
+        </address>
+      </div>
+
+      <main class="letter-body">
+        <div class="meta">
+          <p>Leipzig, <span class="ph">TT. Monat JJJJ</span></p>
+        </div>
+        <p class="subject"><span class="ph">Betreff</span></p>
+        <p><span class="ph">Sehr geehrte Damen und Herren,</span></p>
+        <p>
+          <span class="ph"
+            >Ihr Schreibenstext. Für E-POST bitte durchgängigen Schwarztext auf Weiß verwenden und
+            das Adressfenster frei von Grafiken lassen.</span
+          >
+        </p>
+        <p class="closing"><span class="ph">Mit freundlichen Grüßen</span></p>
+        <div class="sig" aria-hidden="true"></div>
+        <p><span class="ph">Name · Funktion</span></p>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-rule" aria-hidden="true"></div>
+        <div class="footer-grid">
+          <div>
+            <strong>Sitz</strong>
+            treuhans GmbH<br />
+            Burgplatz 2<br />
+            04109 Leipzig
+          </div>
+          <div>
+            <strong>Kontakt</strong>
+            0341 56 63 87 00<br />
+            hallo@treuhans.de<br />
+            www.treuhans.de
+          </div>
+          <div>
+            <strong>Register</strong>
+            AG Leipzig · HRB 44074<br />
+            GF: Moritz Ertl, Dominic Fänders,<br />
+            Ferdinand Löbel<br />
+            USt-IdNr. DE455593227
+          </div>
+        </div>
+      </footer>
+    </article>
+
+    <p class="screen-hint"><strong>Seite 2</strong> — Fortsetzung: Logo + Claim + Footer, kein Adressfenster.</p>
+
+    <article class="sheet continuation" aria-label="E-POST Briefpapier treuhans GmbH — Seite 2">
+      <div class="logo-area">
+        <img src="../treuhans.svg" alt="treuhans" />
+        <p class="claim">Werte schaffen mit Immobilien</p>
+      </div>
+      <div class="header-rule" aria-hidden="true"></div>
+
+      <main class="letter-body" aria-hidden="true"></main>
+
+      <footer class="footer">
+        <div class="footer-rule" aria-hidden="true"></div>
+        <div class="footer-grid">
+          <div>
+            <strong>Sitz</strong>
+            treuhans GmbH<br />
+            Burgplatz 2<br />
+            04109 Leipzig
+          </div>
+          <div>
+            <strong>Kontakt</strong>
+            0341 56 63 87 00<br />
+            hallo@treuhans.de<br />
+            www.treuhans.de
+          </div>
+          <div>
+            <strong>Register</strong>
+            AG Leipzig · HRB 44074<br />
+            GF: Moritz Ertl, Dominic Fänders,<br />
+            Ferdinand Löbel<br />
+            USt-IdNr. DE455593227
+          </div>
+        </div>
+      </footer>
+    </article>
+  </body>
+</html>
