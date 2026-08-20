@@ -14,7 +14,7 @@ export default function KontaktSection() {
             Lass uns sprechen
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-[var(--alt-muted)]">
-            Ob Betreuung, Portfoliowachstum oder Partnerschaft — wir freuen uns auf deine Nachricht.
+            Ob Begleitung, Portfoliowachstum oder Partnerschaft — wir freuen uns auf deine Nachricht.
           </p>
         </div>
 

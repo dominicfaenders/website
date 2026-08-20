@@ -24,19 +24,19 @@ export const businessAreasIntro = {
   eyebrow: "Geschäftsfelder",
   title: "Wir nehmen dich nach dem Kauf an die Hand.",
   description:
-    "Wenn du über einen Kapitalanlagevertrieb gekauft hast, geht es bei uns weiter. Wir begleiten dich über den gesamten Lebenszyklus deiner Immobilie — mindestens zehn Jahre — mit Erfahrung, Wissen, Coaching und einer Betreuung, die weitergeht als klassische Verwaltung.",
+    "Wenn du über einen Kapitalanlagevertrieb gekauft hast, geht es bei uns weiter. Wir begleiten dich über den gesamten Lebenszyklus deiner Immobilie — mindestens zehn Jahre — mit Erfahrung, Wissen, Coaching und einer Begleitung, die weitergeht als klassische Verwaltung.",
 } as const;
 
 export const businessAreas = [
   {
-    id: "betreuung",
+    id: "begleitung",
     number: "01",
-    title: "Betreuung",
+    title: "Begleitung",
     subtitle: "Dein Partner über den gesamten Lebenszyklus",
     description:
       "Eine Kapitalanlage endet nicht mit dem Kauf. Wir sind dein fester Ansprechpartner für den Alltag und die Haltedauer — persönlich, vorausschauend und mit dem Blick auf dein Vermögen, nicht nur auf das einzelne Objekt.",
     audience: "Eigentümer · Kapitalanleger",
-    href: "/?anliegen=betreuung#kontakt",
+    href: "/?anliegen=begleitung#kontakt",
     cta: "Gespräch vereinbaren",
     image: images.rathausNight,
     highlights: [
@@ -373,9 +373,9 @@ export const treuhansApp = {
 
 export const contactPoints = [
   {
-    title: "Betreuung",
+    title: "Begleitung",
     description: "Für Eigentümer, die nach dem Kauf einen langfristigen Partner suchen.",
-    href: "/?anliegen=betreuung#kontakt",
+    href: "/?anliegen=begleitung#kontakt",
     label: "Gespräch vereinbaren",
   },
   {

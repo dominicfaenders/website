@@ -11,7 +11,9 @@ const nextConfig: NextConfig = {
     ],
   },
   redirects: async () => [
-    { source: "/asset-management", destination: "/#betreuung", permanent: false },
+    { source: "/asset-management", destination: "/#begleitung", permanent: false },
+    { source: "/betreuung", destination: "/#begleitung", permanent: false },
+    { source: "/begleitung", destination: "/#begleitung", permanent: false },
     { source: "/investment", destination: "/#wachstum", permanent: false },
     { source: "/geschaeftsfelder", destination: "/#geschaeftsfelder", permanent: false },
     { source: "/ueber-uns", destination: "/#ueber-uns", permanent: false },

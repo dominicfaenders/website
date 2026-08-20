@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 
 const anliegenOptions = [
-  { value: "betreuung", label: "Betreuung" },
+  { value: "begleitung", label: "Begleitung" },
   { value: "wachstum", label: "Wachstum" },
   { value: "partnerschaft", label: "Partnerschaft" },
   { value: "sonstiges", label: "Sonstiges" },

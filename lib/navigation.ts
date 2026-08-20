@@ -19,6 +19,6 @@ export const footerNav = [
 ] as const;
 
 export const businessFieldLinks = [
-  { href: "/#betreuung", label: "Betreuung", id: "betreuung" },
+  { href: "/#begleitung", label: "Begleitung", id: "begleitung" },
   { href: "/#wachstum", label: "Wachstum", id: "wachstum" },
 ] as const;
