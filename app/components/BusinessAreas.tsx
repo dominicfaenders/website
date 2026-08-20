@@ -3,7 +3,7 @@ import { businessAreas, businessAreasIntro } from "@/lib/content";
 
 export default function BusinessAreas() {
   return (
-    <section id="geschaeftsfelder" className="bg-[var(--alt-bg)]">
+    <section id="service" className="bg-[var(--alt-bg)]">
       <div className="mx-auto max-w-6xl px-6 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-36">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-[13px] font-medium tracking-[0.06em] text-[var(--alt-muted)] uppercase">

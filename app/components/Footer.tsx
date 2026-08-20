@@ -16,7 +16,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-[12px] font-semibold text-[var(--alt-ink)]">Geschäftsfelder</p>
+            <p className="text-[12px] font-semibold text-[var(--alt-ink)]">Service</p>
             <ul className="mt-5 space-y-3">
               {businessFieldLinks.map((link) => (
                 <li key={link.href}>

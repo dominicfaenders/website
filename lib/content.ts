@@ -21,7 +21,7 @@ export const company = {
 } as const;
 
 export const businessAreasIntro = {
-  eyebrow: "Geschäftsfelder",
+  eyebrow: "Service",
   title: "Wir nehmen dich nach dem Kauf an die Hand.",
   description:
     "Wenn du über einen Kapitalanlagevertrieb gekauft hast, geht es bei uns weiter. Wir begleiten dich über den gesamten Lebenszyklus deiner Immobilie — über 10 Jahre und darüber hinaus — mit Erfahrung, Wissen, Coaching und einer Begleitung, die weitergeht als klassische Verwaltung.",
