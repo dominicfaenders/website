@@ -220,55 +220,29 @@ export const jobOpenings = [
   {
     id: "property-manager",
     title: "Property Manager (m/w/d)",
-    teaser: "Operative Betreuung und Steuerung von Wohnimmobilien im Mandatsportfolio.",
-    description:
-      "Als Property Manager übernimmst du die kaufmännische und operative Betreuung von Wohnimmobilien. Du sorgst für reibungslose Abläufe im Tagesgeschäft, hältst den Kontakt zu Mietern und Dienstleistern und unterstützt die Wertentwicklung der Objekte.",
+    teaser:
+      "Eigenverantwortliche Betreuung eines Objektportfolios — von Instandsetzung und Budgets bis zu Eigentümerversammlungen.",
     tasks: [
-      "Technische und kaufmännische Objektbetreuung",
-      "Koordination von Instandhaltung, Modernisierung und Dienstleistern",
-      "Mieterkommunikation und laufende Verwaltungsprozesse",
-      "Unterstützung bei Reporting und Bestandsentwicklung",
+      "Eigenverantwortliche und strategische Betreuung eines eigenen Objektportfolios (je nach Schwerpunkt WEG-Mandate oder Miet- und Sondereigentumsverwaltungen)",
+      "Beauftragung und Betreuung von Instandsetzungsmaßnahmen",
+      "Vorbereitung von Entscheidungsvorlagen und Steuerung von externen Dienstleistern",
+      "Verantwortung für die Einhaltung der kaufmännischen Budgets und wirtschaftlicher Objektstrategien",
+      "Durchführung von protokollierten Objektbegehungen und Baustellenterminen",
+      "ggf. Durchführung von Eigentümerversammlungen, überwiegend online",
     ],
     profile: [
-      "Erfahrung in der Immobilienverwaltung oder im Asset Management",
-      "Strukturierte, lösungsorientierte Arbeitsweise",
-      "Verhandlungssicheres Auftreten und unternehmerisches Denken",
+      "Abgeschlossene Berufsausbildung wie beispielsweise Immobilienkauffrau/Immobilienkaufmann, Immobilienassistent, Bankkaufmann (m/w/d). Berufseinsteiger sind willkommen!",
+      "Alternativ bzw. ergänzend erfolgreich abgeschlossene Aus- und Weiterbildung wie beispielsweise zum Immobilienfachwirt (m/w/d).",
+      "Alternativ auch erfolgreich abgeschlossenes Fach- oder Hochschulstudium mit immobilienwirtschaftlichem, bautechnischem oder betriebswirtschaftlichem Schwerpunkt wie beispielsweise Immobilienmanagement, Immobilienwirtschaft, Betriebswirtschaftslehre, Real Estate oder Bauingenieurwesen. Praxisorientierte Architekten (m/w/d) oder Immobilienmakler (m/w/d) sind auch willkommen!",
+      "Du hast bestenfalls Erfahrung in der Anwendung einer wohnungswirtschaftlichen Software. Gerne bringst du vertieftes Wissen in einem oder mehreren dieser drei Kompetenzfelder mit: WEG-Verwaltung, Mietverwaltung oder Transactions.",
     ],
-  },
-  {
-    id: "transaction-manager",
-    title: "Transaction Manager (m/w/d)",
-    teaser: "Strukturierte Begleitung von Transaktionen entlang des Investmentprozesses.",
-    description:
-      "Als Transaction Manager begleitest du Erwerb, Strukturierung und Abwicklung von Kapitalanlageimmobilien. Du arbeitest eng mit Eigentümern, Investoren und externen Partnern zusammen und sorgst für belastbare Entscheidungsgrundlagen.",
-    tasks: [
-      "Koordination von Akquisitions- und Verkaufsprozessen",
-      "Due-Diligence-Prozesse kaufmännisch und organisatorisch begleiten",
-      "Abstimmung mit Eigentümern, Investoren, Maklern und Beratern",
-      "Aufbereitung von Unterlagen, Terminen und Entscheidungsvorlagen",
-    ],
-    profile: [
-      "Erfahrung im Transaktions- oder Investmentumfeld von Immobilien",
-      "Sorgfalt, Zahlenaffinität und hohe Prozessdisziplin",
-      "Kommunikationsstärke und Verantwortungsbewusstsein",
-    ],
-  },
-  {
-    id: "concierge",
-    title: "Concierge (m/w/d)",
-    teaser: "Erster Ansprechpartner für Kunden, Investoren und Partner — persönlich und verlässlich.",
-    description:
-      "Als Concierge bist du die zentrale Schnittstelle für Anfragen rund um Verwaltung, Investment und Partnerschaften. Du sorgst für schnelle, klare und wertschätzende Kommunikation und leitest Anliegen strukturiert an das richtige Team weiter.",
-    tasks: [
-      "Annahme und Qualifizierung eingehender Anfragen",
-      "Koordination von Terminen, Rückrufen und Informationsflüssen",
-      "Unterstützung bei der Betreuung von Kunden und Investoren",
-      "Schnittstelle zwischen Kunden, Team und Geschäftsführung",
-    ],
-    profile: [
-      "Ausgeprägte Serviceorientierung und sicheres Auftreten",
-      "Organisationstalent und hohe Kommunikationskompetenz",
-      "Idealerweise Erfahrung im Kundenkontakt oder in der Immobilienbranche",
+    benefits: [
+      "Zentrales Büro direkt am Leipziger Burgplatz",
+      "kostenloses Deutschlandticket oder Tiefgaragenstellplatz",
+      "31,5 Tage Urlaub",
+      "attraktives Tech Bundle aus MacBook Air und iPhone 17",
+      "freies Fortbildungsbudget von 2.000 EUR pro Jahr",
+      "familiäre Arbeitsatmosphäre und offene Kultur im inhabergeführten Unternehmen",
     ],
   },
 ] as const;

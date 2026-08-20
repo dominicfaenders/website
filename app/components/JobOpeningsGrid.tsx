@@ -20,7 +20,6 @@ export default function JobOpeningsGrid() {
               </span>
             </summary>
             <div className="space-y-5 border-t border-border px-4 py-5 text-sm leading-relaxed text-warm-white-soft">
-              <p>{job.description}</p>
               <div>
                 <p className="mb-3 text-[11px] font-medium tracking-[0.16em] uppercase text-gold">
                   Deine Aufgaben
@@ -32,6 +31,12 @@ export default function JobOpeningsGrid() {
                   Dein Profil
                 </p>
                 <CheckList items={job.profile} />
+              </div>
+              <div>
+                <p className="mb-3 text-[11px] font-medium tracking-[0.16em] uppercase text-gold">
+                  Deine Benefits bei treuhans
+                </p>
+                <CheckList items={job.benefits} />
               </div>
             </div>
           </details>

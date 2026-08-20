@@ -47,7 +47,6 @@ export default function KarriereSection() {
                   </span>
                 </summary>
                 <div className="mt-5 space-y-6 text-[15px] leading-relaxed text-[var(--alt-muted)]">
-                  <p>{job.description}</p>
                   <div>
                     <p className="mb-3 text-[13px] font-semibold text-[var(--alt-ink)]">
                       Deine Aufgaben
@@ -67,6 +66,19 @@ export default function KarriereSection() {
                     </p>
                     <ul className="space-y-2.5">
                       {job.profile.map((item) => (
+                        <li key={item} className="flex items-start gap-3">
+                          <span className="mt-2 block h-1 w-1 shrink-0 rounded-full bg-[var(--alt-ink)]" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="mb-3 text-[13px] font-semibold text-[var(--alt-ink)]">
+                      Deine Benefits bei treuhans
+                    </p>
+                    <ul className="space-y-2.5">
+                      {job.benefits.map((item) => (
                         <li key={item} className="flex items-start gap-3">
                           <span className="mt-2 block h-1 w-1 shrink-0 rounded-full bg-[var(--alt-ink)]" />
                           {item}
