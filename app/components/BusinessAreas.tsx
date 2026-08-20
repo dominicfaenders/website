@@ -1,17 +1,20 @@
 import Image from "next/image";
-import { businessAreas } from "@/lib/content";
+import { businessAreas, businessAreasIntro } from "@/lib/content";
 
 export default function BusinessAreas() {
   return (
-    <section className="bg-[var(--alt-bg)]">
+    <section id="geschaeftsfelder" className="bg-[var(--alt-bg)]">
       <div className="mx-auto max-w-6xl px-6 pb-12 pt-28 lg:px-10 lg:pb-16 lg:pt-36">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-[13px] font-medium tracking-[0.06em] text-[var(--alt-muted)] uppercase">
-            Geschäftsfelder
+            {businessAreasIntro.eyebrow}
           </p>
           <h2 className="mt-4 text-4xl font-semibold tracking-tight text-[var(--alt-ink)] sm:text-5xl">
-            Alles, was du für Vermögensaufbau mit Immobilien brauchst.
+            {businessAreasIntro.title}
           </h2>
+          <p className="mt-5 text-lg leading-relaxed text-[var(--alt-muted)]">
+            {businessAreasIntro.description}
+          </p>
         </div>
 
         <div className="mt-20 grid gap-12 lg:grid-cols-2 lg:gap-10">

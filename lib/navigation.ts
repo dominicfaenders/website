@@ -1,7 +1,6 @@
 export const mainNav = [
   { href: "/#start", label: "Startseite", id: "start" },
-  { href: "/#investment", label: "Investment", id: "investment" },
-  { href: "/#asset-management", label: "Asset Management", id: "asset-management" },
+  { href: "/#geschaeftsfelder", label: "Geschäftsfelder", id: "geschaeftsfelder" },
   { href: "/#ueber-uns", label: "Mission", id: "ueber-uns" },
   { href: "/#karriere", label: "Karriere", id: "karriere" },
 ] as const;
@@ -20,6 +19,6 @@ export const footerNav = [
 ] as const;
 
 export const businessFieldLinks = [
-  { href: "/#investment", label: "Investment", id: "investment" },
-  { href: "/#asset-management", label: "Asset Management", id: "asset-management" },
+  { href: "/#betreuung", label: "Betreuung", id: "betreuung" },
+  { href: "/#wachstum", label: "Wachstum", id: "wachstum" },
 ] as const;

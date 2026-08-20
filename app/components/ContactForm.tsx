@@ -3,8 +3,8 @@
 import { useSearchParams } from "next/navigation";
 
 const anliegenOptions = [
-  { value: "asset-management", label: "Asset Management" },
-  { value: "investment", label: "Investment" },
+  { value: "betreuung", label: "Betreuung" },
+  { value: "wachstum", label: "Wachstum" },
   { value: "partnerschaft", label: "Partnerschaft" },
   { value: "sonstiges", label: "Sonstiges" },
 ];

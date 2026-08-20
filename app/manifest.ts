@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "treuhans",
     short_name: "treuhans",
-    description: "treuhans — dein Partner für Asset Management und Investment.",
+    description: "treuhans — dein Partner nach dem Kauf. Wir begleiten dich über den gesamten Lebenszyklus deiner Immobilie.",
     start_url: "/",
     display: "standalone",
     background_color: "#0a0e0d",

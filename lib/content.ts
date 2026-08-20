@@ -20,41 +20,48 @@ export const company = {
   website: "www.treuhans.de",
 } as const;
 
+export const businessAreasIntro = {
+  eyebrow: "Geschäftsfelder",
+  title: "Wir nehmen dich nach dem Kauf an die Hand.",
+  description:
+    "Wenn du über einen Kapitalanlagevertrieb gekauft hast, geht es bei uns weiter. Wir begleiten dich über den gesamten Lebenszyklus deiner Immobilie — mindestens zehn Jahre — mit Erfahrung, Wissen, Coaching und einer Betreuung, die weitergeht als klassische Verwaltung.",
+} as const;
+
 export const businessAreas = [
   {
-    id: "investment",
+    id: "betreuung",
     number: "01",
-    title: "Investment",
-    subtitle: "Vertrieb von Kapitalanlageimmobilien an Endkunden",
+    title: "Betreuung",
+    subtitle: "Dein Partner über den gesamten Lebenszyklus",
     description:
-      "Du suchst Kapitalanlageimmobilien mit langfristigem Wertpotenzial? Wir identifizieren, strukturieren und vertreiben für dich selektierte Objekte in wirtschaftlich starken Lagen.",
-    audience: "Privatanleger · Kapitalanleger · Investoren",
-    href: "/investment",
-    cta: "Investment-Beratung anfragen",
-    image: images.kanalApartments,
+      "Eine Kapitalanlage endet nicht mit dem Kauf. Wir sind dein fester Ansprechpartner für den Alltag und die Haltedauer — persönlich, vorausschauend und mit dem Blick auf dein Vermögen, nicht nur auf das einzelne Objekt.",
+    audience: "Eigentümer · Kapitalanleger",
+    href: "/?anliegen=betreuung#kontakt",
+    cta: "Gespräch vereinbaren",
+    image: images.rathausNight,
     highlights: [
-      "Selektierte Objekte an wachstumsstarken Standorten",
-      "Individuelle Anlagestrategie und Strukturierung für dich",
-      "Begleitung bei Finanzierung und Erwerb",
-      "Langfristige Betreuung über den Anlagezyklus",
+      "Persönlicher Ansprechpartner statt anonymer Verwaltung",
+      "Kaufmännische und technische Objektbetreuung",
+      "Entscheidungen vorbereiten, wenn es darauf ankommt",
+      "Verlässliche Begleitung über mindestens zehn Jahre",
     ],
   },
   {
-    id: "asset-management",
+    id: "wachstum",
     number: "02",
-    title: "Asset Management",
-    subtitle: "Verwaltung und operative Steuerung von Immobilienvermögen",
+    title: "Wachstum",
+    subtitle: "Vermögen aufbauen. Portfolio skalieren.",
     description:
-      "Du willst deine Wohnimmobilien professionell betreut wissen? Wir übernehmen für dich Verwaltung und operative Steuerung — von der Bestandsoptimierung bis zum laufenden Reporting.",
-    audience: "Eigentümer · Investoren · Family Offices",
-    href: "/asset-management",
-    cta: "Asset Management anfragen",
-    image: images.rathausNight,
+      "Eine Immobilie ist oft der Anfang. Wir unterstützen dich mit Erfahrung, Wissen und Coaching dabei, dein Portfolio weiterzuentwickeln — klar, ruhig und ohne Vertriebsdruck.",
+    audience: "Kapitalanleger · Bestandshalter",
+    href: "/?anliegen=wachstum#kontakt",
+    cta: "Gespräch vereinbaren",
+    image: images.kanalApartments,
     highlights: [
-      "Technische & kaufmännische Objektbetreuung",
-      "Mieter-Management und Instandhaltungssteuerung",
-      "Quartals-Reporting und Portfolioanalyse",
-      "Strategische Wertsteigerung und Exit-Vorbereitung",
+      "Coaching und Wissen rund um deine Kapitalanlage",
+      "Unterstützung bei der Portfolioskalierung",
+      "Strategische Begleitung über den Anlagezyklus",
+      "Erfahrung aus eigenen und betreuten Beständen",
     ],
   },
 ] as const;
@@ -366,20 +373,20 @@ export const treuhansApp = {
 
 export const contactPoints = [
   {
-    title: "Asset Management",
-    description: "Für Eigentümer und Investoren mit Bestandsimmobilien.",
-    href: "/?anliegen=asset-management#kontakt",
-    label: "Verwaltung anfragen",
+    title: "Betreuung",
+    description: "Für Eigentümer, die nach dem Kauf einen langfristigen Partner suchen.",
+    href: "/?anliegen=betreuung#kontakt",
+    label: "Gespräch vereinbaren",
   },
   {
-    title: "Investment",
-    description: "Für Privatanleger und Kapitalanleger mit Anlageinteresse.",
-    href: "/?anliegen=investment#kontakt",
-    label: "Beratung anfragen",
+    title: "Wachstum",
+    description: "Für Kapitalanleger, die ihr Portfolio weiterentwickeln wollen.",
+    href: "/?anliegen=wachstum#kontakt",
+    label: "Gespräch vereinbaren",
   },
   {
     title: "Partnerschaften",
-    description: "Für Projektentwickler, Makler und institutionelle Partner.",
+    description: "Für Kapitalanlagevertriebe und institutionelle Partner.",
     href: "/?anliegen=partnerschaft#kontakt",
     label: "Partnerschaft anfragen",
   },

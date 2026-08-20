@@ -8,7 +8,6 @@ import { mainNav } from "@/lib/navigation";
 
 function HeaderNav() {
   const [pastHero, setPastHero] = useState(false);
-  const [scrolledABit, setScrolledABit] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeId, setActiveId] = useState("start");
   const pathname = usePathname();
@@ -16,7 +15,6 @@ function HeaderNav() {
   useEffect(() => {
     if (pathname !== "/") {
       setPastHero(true);
-      setScrolledABit(false);
       return;
     }
 
@@ -29,7 +27,6 @@ function HeaderNav() {
     const headerOffset = 72;
     const update = () => {
       setPastHero(hero.getBoundingClientRect().bottom <= headerOffset);
-      setScrolledABit(window.scrollY > 12);
     };
 
     update();
@@ -54,25 +51,19 @@ function HeaderNav() {
 
   const solid = pastHero || menuOpen || pathname !== "/";
   const onHome = pathname === "/";
-  const overHero = onHome && !pastHero && !menuOpen;
-  const frosted = overHero && scrolledABit;
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        solid
-          ? "bg-white shadow-[0_1px_0_var(--alt-line)]"
-          : frosted
-            ? "bg-black/15 backdrop-blur-md"
-            : "bg-transparent"
+        solid ? "bg-white shadow-[0_1px_0_var(--alt-line)]" : "bg-transparent"
       }`}
     >
       <div
         className={`mx-auto flex max-w-6xl items-center justify-between px-6 transition-[padding] duration-500 lg:px-10 ${
-          solid || frosted ? "py-4 lg:py-5" : "pt-8 pb-5 lg:pt-11 lg:pb-6"
+          solid ? "py-4 lg:py-5" : "pt-8 pb-5 lg:pt-11 lg:pb-6"
         }`}
       >
-        <Logo variant={overHero ? "light" : "dark"} href="/#start" />
+        <Logo variant="dark" href="/#start" />
 
         <div className="flex items-center gap-3">
           <nav className="hidden items-center gap-8 xl:flex xl:mr-6">
@@ -83,13 +74,9 @@ function HeaderNav() {
                   key={link.href}
                   href={link.href}
                   className={`text-[17px] font-semibold tracking-[-0.01em] transition-colors ${
-                    overHero
-                      ? isActive
-                        ? "text-white"
-                        : "text-white/75 hover:text-white"
-                      : isActive
-                        ? "text-[var(--alt-ink)]"
-                        : "text-[#424245] hover:text-[var(--alt-ink)]"
+                    isActive
+                      ? "text-[var(--alt-ink)]"
+                      : "text-[#424245] hover:text-[var(--alt-ink)]"
                   }`}
                 >
                   {link.label}
@@ -101,11 +88,7 @@ function HeaderNav() {
             href="https://app.treuhans.de/login"
             target="_blank"
             rel="noopener noreferrer"
-            className={`hidden items-center justify-center rounded-full px-5 py-2.5 text-[17px] font-semibold tracking-[-0.01em] transition-all sm:inline-flex ${
-              overHero
-                ? "bg-white text-[var(--alt-ink)] hover:scale-[1.02]"
-                : "bg-[var(--alt-ink)] text-white hover:scale-[1.02]"
-            }`}
+            className="hidden items-center justify-center rounded-full bg-[var(--alt-ink)] px-5 py-2.5 text-[17px] font-semibold tracking-[-0.01em] text-white transition-all hover:scale-[1.02] sm:inline-flex"
           >
             Login
           </a>
@@ -119,9 +102,7 @@ function HeaderNav() {
             {[0, 1, 2].map((i) => (
               <span
                 key={i}
-                className={`block h-px w-5 transition-all ${
-                  overHero ? "bg-white" : "bg-[var(--alt-ink)]"
-                } ${
+                className={`block h-px w-5 bg-[var(--alt-ink)] transition-all ${
                   menuOpen && i === 0
                     ? "translate-y-[7px] rotate-45"
                     : menuOpen && i === 1

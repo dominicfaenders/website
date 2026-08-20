@@ -11,15 +11,16 @@ const nextConfig: NextConfig = {
     ],
   },
   redirects: async () => [
-    { source: "/asset-management", destination: "/#asset-management", permanent: false },
-    { source: "/investment", destination: "/#investment", permanent: false },
+    { source: "/asset-management", destination: "/#betreuung", permanent: false },
+    { source: "/investment", destination: "/#wachstum", permanent: false },
+    { source: "/geschaeftsfelder", destination: "/#geschaeftsfelder", permanent: false },
     { source: "/ueber-uns", destination: "/#ueber-uns", permanent: false },
     { source: "/projekte", destination: "/#projekte", permanent: false },
     { source: "/insights", destination: "/#insights", permanent: false },
     { source: "/kontakt", destination: "/#kontakt", permanent: false },
     { source: "/ankaufsprofil", destination: "/", permanent: false },
     { source: "/karriere", destination: "/#karriere", permanent: false },
-    { source: "/leistungen", destination: "/#asset-management", permanent: false },
+    { source: "/leistungen", destination: "/#geschaeftsfelder", permanent: false },
   ],
 };
 

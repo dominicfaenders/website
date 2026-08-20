@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | treuhans GmbH",
   },
   description:
-    "treuhans — dein Partner für Asset Management und Investment. Werte bewahren, Potenziale heben.",
+    "treuhans — dein Partner nach dem Kauf. Wir begleiten dich über den gesamten Lebenszyklus deiner Immobilie.",
   applicationName: "treuhans",
   appleWebApp: {
     capable: true,
