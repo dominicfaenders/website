@@ -25,7 +25,7 @@ function HeaderNav() {
   const onHome = pathname === "/";
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 bg-white shadow-[0_1px_0_var(--alt-line)]">
+    <header className="fixed top-0 right-0 left-0 z-50 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-10 lg:py-5">
         <Logo variant="dark" href="/#start" />
 
