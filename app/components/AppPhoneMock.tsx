@@ -15,41 +15,56 @@ export default function AppPhoneMock() {
     const content = contentRef.current;
     if (!phone || !screen || !content) return;
 
-    let frame = 0;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
 
-    const update = () => {
+    let animation: Animation | null = null;
+
+    const playFromStart = () => {
+      animation?.cancel();
       const max = Math.max(0, content.scrollHeight - screen.clientHeight);
-      const rect = phone.getBoundingClientRect();
-      const viewport = window.innerHeight;
-      const visible = Math.min(rect.bottom, viewport) - Math.max(rect.top, 0);
-      const visibility = rect.height > 0 ? visible / rect.height : 0;
+      if (max <= 0) return;
 
-      let progress = 0;
-      if (rect.bottom <= 0) {
-        progress = 1;
-      } else if (rect.top >= viewport || visibility < 0.45) {
-        progress = rect.top > 0 ? 0 : 1;
-      } else {
-        const startTop = viewport - rect.height * 0.45;
-        const endTop = rect.height * 0.45 - rect.height;
-        progress = (startTop - rect.top) / (startTop - endTop);
-      }
-
-      content.style.transform = `translate3d(0, ${-Math.min(1, Math.max(0, progress)) * max}px, 0)`;
+      animation = content.animate(
+        [
+          { transform: "translate3d(0, 0, 0)" },
+          { transform: `translate3d(0, ${-max}px, 0)` },
+        ],
+        {
+          duration: 18000,
+          easing: "linear",
+          iterations: Number.POSITIVE_INFINITY,
+          direction: "alternate",
+        },
+      );
     };
 
-    const onScroll = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(update);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+          if (!animation) playFromStart();
+          else animation.play();
+        } else {
+          animation?.pause();
+        }
+      },
+      { threshold: [0, 0.4, 0.6] },
+    );
+
+    observer.observe(phone);
+
+    const onResize = () => {
+      const wasPlaying = animation?.playState === "running";
+      playFromStart();
+      if (!wasPlaying) animation?.pause();
     };
 
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", onResize);
     return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      observer.disconnect();
+      animation?.cancel();
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
