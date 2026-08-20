@@ -7,36 +7,9 @@ import Logo from "@/app/components/Logo";
 import { mainNav } from "@/lib/navigation";
 
 function HeaderNav() {
-  const [pastHero, setPastHero] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeId, setActiveId] = useState("start");
   const pathname = usePathname();
-
-  useEffect(() => {
-    if (pathname !== "/") {
-      setPastHero(true);
-      return;
-    }
-
-    const hero = document.getElementById("start");
-    if (!hero) {
-      setPastHero(true);
-      return;
-    }
-
-    const headerOffset = 72;
-    const update = () => {
-      setPastHero(hero.getBoundingClientRect().bottom <= headerOffset);
-    };
-
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
-  }, [pathname]);
 
   useEffect(() => {
     const syncHash = () => setActiveId(window.location.hash.slice(1) || "start");
@@ -49,20 +22,11 @@ function HeaderNav() {
     setMenuOpen(false);
   }, [pathname, activeId]);
 
-  const solid = pastHero || menuOpen || pathname !== "/";
   const onHome = pathname === "/";
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        solid ? "bg-white shadow-[0_1px_0_var(--alt-line)]" : "bg-transparent"
-      }`}
-    >
-      <div
-        className={`mx-auto flex max-w-6xl items-center justify-between px-6 transition-[padding] duration-500 lg:px-10 ${
-          solid ? "py-4 lg:py-5" : "pt-8 pb-5 lg:pt-11 lg:pb-6"
-        }`}
-      >
+    <header className="fixed top-0 right-0 left-0 z-50 bg-white shadow-[0_1px_0_var(--alt-line)]">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-10 lg:py-5">
         <Logo variant="dark" href="/#start" />
 
         <div className="flex items-center gap-3">
