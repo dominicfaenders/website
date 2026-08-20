@@ -176,6 +176,28 @@ function TicketScreen() {
   );
 }
 
+const academyVideos = [
+  {
+    tap: "video" as const,
+    title: "Care-Paket erklärt",
+    duration: "4:12 min",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    title: "Portfolio skalieren",
+    duration: "6:40 min",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    title: "Betriebskosten verstehen",
+    duration: "3:55 min",
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80",
+  },
+];
+
 function AcademyScreen() {
   return (
     <div className="px-4 pt-3">
@@ -183,28 +205,26 @@ function AcademyScreen() {
       <h3 className="text-[17px] font-semibold tracking-tight text-[#1d1d1f]">Academy</h3>
       <p className="mt-1 text-[11px] text-[#6e6e73]">Wissen rund um deine Immobilie</p>
       <div className="mt-3 space-y-2">
-        <div data-tap="video" className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
-          <div className="relative h-[72px]">
-            <Image src={images.kanalApartments} alt="" fill className="object-cover" sizes="240px" />
-            <span className="absolute inset-0 flex items-center justify-center">
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/90 text-[10px] text-[#1d1d1f]">
-                ▶
+        {academyVideos.map((video) => (
+          <div
+            key={video.title}
+            data-tap={video.tap}
+            className="flex gap-2.5 overflow-hidden rounded-2xl bg-white p-2 shadow-sm ring-1 ring-black/5"
+          >
+            <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl">
+              <Image src={video.image} alt="" fill className="object-cover object-top" sizes="56px" />
+              <span className="absolute inset-0 flex items-center justify-center bg-black/15">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/95 text-[8px] text-[#1d1d1f]">
+                  ▶
+                </span>
               </span>
-            </span>
+            </div>
+            <div className="min-w-0 self-center">
+              <p className="text-[12px] font-semibold text-[#1d1d1f]">{video.title}</p>
+              <p className="mt-0.5 text-[10px] text-[#6e6e73]">{video.duration}</p>
+            </div>
           </div>
-          <div className="p-3">
-            <p className="text-[12px] font-semibold text-[#1d1d1f]">Care-Paket erklärt</p>
-            <p className="mt-0.5 text-[10px] text-[#6e6e73]">4:12 min</p>
-          </div>
-        </div>
-        <div className="rounded-xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-black/5">
-          <p className="text-[11px] font-semibold text-[#1d1d1f]">Portfolio skalieren</p>
-          <p className="mt-0.5 text-[10px] text-[#6e6e73]">6:40 min</p>
-        </div>
-        <div className="rounded-xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-black/5">
-          <p className="text-[11px] font-semibold text-[#1d1d1f]">Betriebskosten verstehen</p>
-          <p className="mt-0.5 text-[10px] text-[#6e6e73]">3:55 min</p>
-        </div>
+        ))}
       </div>
     </div>
   );
@@ -216,7 +236,13 @@ function VideoScreen() {
       <Back label="Academy" />
       <div className="relative overflow-hidden rounded-2xl bg-[#1d1d1f]">
         <div className="relative h-36">
-          <Image src={images.kanalApartments} alt="" fill className="object-cover opacity-80" sizes="240px" />
+          <Image
+            src={academyVideos[0].image}
+            alt=""
+            fill
+            className="object-cover object-top opacity-90"
+            sizes="240px"
+          />
           <span className="absolute inset-0 flex items-center justify-center">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[12px] text-[#1d1d1f]">
               ▶
