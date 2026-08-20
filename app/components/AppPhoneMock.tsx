@@ -368,29 +368,29 @@ export default function AppPhoneMock() {
   return (
     <div
       ref={phoneRef}
-      className="relative mx-auto w-[248px] shrink-0 pointer-events-none select-none"
+      className="relative mx-auto aspect-[71.5/149.6] w-[270px] shrink-0 pointer-events-none select-none"
       aria-hidden="true"
     >
-      <div className="relative rounded-[2.75rem] bg-[#1d1d1f] p-[8px] shadow-[0_24px_80px_rgba(0,0,0,0.18)] ring-1 ring-black/20">
-        <div className="relative overflow-hidden rounded-[2.25rem] bg-[#f5f5f7]">
-          <div className="relative z-10 flex items-center justify-between bg-[#f5f5f7] px-5 pt-3.5 pb-1 text-[10px] font-semibold text-[#1d1d1f]">
+      <div className="absolute inset-0 rounded-[2.8rem] bg-[#1d1d1f] p-[6px] shadow-[0_24px_80px_rgba(0,0,0,0.18)] ring-1 ring-black/25">
+        <div className="flex h-full flex-col overflow-hidden rounded-[2.35rem] bg-[#f5f5f7]">
+          <div className="relative z-10 flex items-center justify-between px-6 pt-3 pb-1 text-[10px] font-semibold text-[#1d1d1f]">
             <span>9:41</span>
-            <div className="absolute top-2.5 left-1/2 h-[24px] w-[78px] -translate-x-1/2 rounded-full bg-[#1d1d1f]" />
+            <div className="absolute top-2 left-1/2 h-[26px] w-[82px] -translate-x-1/2 rounded-full bg-[#1d1d1f]" />
             <span className="flex items-center gap-1">
               <span className="block h-2 w-4 rounded-sm bg-[#1d1d1f]/70" />
               <span className="block h-2.5 w-5 rounded-sm bg-[#1d1d1f]" />
             </span>
           </div>
 
-          <div ref={screenRef} className="relative h-[560px] overflow-hidden">
+          <div ref={screenRef} className="relative min-h-0 flex-1 overflow-hidden">
             <div key={screen} className="alt-reveal h-full">
               <View />
             </div>
             <Finger {...finger} />
           </div>
 
-          <div className="flex justify-center bg-[#f5f5f7] pt-1 pb-2">
-            <span className="h-1 w-24 rounded-full bg-[#1d1d1f]/20" />
+          <div className="flex justify-center pt-1 pb-2.5">
+            <span className="h-[4px] w-[108px] rounded-full bg-[#1d1d1f]/22" />
           </div>
         </div>
       </div>
