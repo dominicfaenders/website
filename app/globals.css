@@ -109,29 +109,35 @@ body {
   animation-delay: 0.24s;
 }
 
-@keyframes claim-word {
-  from {
+@keyframes claim-caret {
+  50% {
     opacity: 0;
-    transform: translateY(0.55em);
-    filter: blur(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
   }
 }
 
-.claim-word {
-  animation: claim-word 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+.claim-caret {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.92em;
+  margin-left: 0.08em;
+  vertical-align: -0.06em;
+  background: currentColor;
+  animation: claim-caret 0.9s steps(1) infinite;
+}
+
+.claim-caret-done {
+  animation-iteration-count: 6;
 }
 
 .claim-subline {
-  animation: alt-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+  animation: alt-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .claim-word,
+  .claim-caret {
+    display: none;
+  }
+
   .claim-subline {
     animation: none;
   }
