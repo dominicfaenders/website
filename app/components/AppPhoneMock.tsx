@@ -5,23 +5,37 @@ import { useEffect, useRef } from "react";
 import { alt, images } from "@/lib/images";
 
 export default function AppPhoneMock() {
+  const phoneRef = useRef<HTMLDivElement>(null);
   const screenRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const phone = phoneRef.current;
     const screen = screenRef.current;
     const content = contentRef.current;
-    if (!screen || !content) return;
+    if (!phone || !screen || !content) return;
 
     let frame = 0;
 
     const update = () => {
       const max = Math.max(0, content.scrollHeight - screen.clientHeight);
-      const rect = screen.getBoundingClientRect();
-      const start = window.innerHeight * 0.82;
-      const end = window.innerHeight * 0.18;
-      const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
-      content.style.transform = `translate3d(0, ${-progress * max}px, 0)`;
+      const rect = phone.getBoundingClientRect();
+      const viewport = window.innerHeight;
+      const visible = Math.min(rect.bottom, viewport) - Math.max(rect.top, 0);
+      const visibility = rect.height > 0 ? visible / rect.height : 0;
+
+      let progress = 0;
+      if (rect.bottom <= 0) {
+        progress = 1;
+      } else if (rect.top >= viewport || visibility < 0.45) {
+        progress = rect.top > 0 ? 0 : 1;
+      } else {
+        const startTop = viewport - rect.height * 0.45;
+        const endTop = rect.height * 0.45 - rect.height;
+        progress = (startTop - rect.top) / (startTop - endTop);
+      }
+
+      content.style.transform = `translate3d(0, ${-Math.min(1, Math.max(0, progress)) * max}px, 0)`;
     };
 
     const onScroll = () => {
@@ -41,6 +55,7 @@ export default function AppPhoneMock() {
 
   return (
     <div
+      ref={phoneRef}
       className="relative mx-auto w-[272px] shrink-0 pointer-events-none select-none"
       aria-hidden="true"
     >
