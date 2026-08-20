@@ -50,9 +50,9 @@ export const businessAreas = [
     id: "wachstum",
     number: "02",
     title: "Wachstum",
-    subtitle: "Vermögen aufbauen. Portfolio skalieren.",
+    subtitle: "Die erste Wohnung ist oft erst der Anfang.",
     description:
-      "Eine Immobilie ist oft der Anfang. Wir unterstützen dich mit Erfahrung, Wissen und Coaching dabei, dein Portfolio weiterzuentwickeln — klar, ruhig und ohne Vertriebsdruck.",
+      "Wir unterstützen dich mit Erfahrung, Wissen und Coaching dabei, dein Portfolio weiterzuentwickeln — klar, ruhig und ohne Vertriebsdruck.",
     audience: "Kapitalanleger · Bestandshalter",
     href: "/?anliegen=wachstum#kontakt",
     cta: "Gespräch vereinbaren",
