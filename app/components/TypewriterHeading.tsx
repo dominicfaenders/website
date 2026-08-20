@@ -78,9 +78,7 @@ export default function TypewriterHeading({
         </span>
         <span className="absolute inset-0" aria-hidden="true">
           {started ? text.slice(0, count) : null}
-          {started ? (
-            <span className={`claim-caret${done ? " claim-caret-done" : ""}`} />
-          ) : null}
+          {started && !done ? <span className="claim-caret" /> : null}
         </span>
       </Tag>
       {children ? (
