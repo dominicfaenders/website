@@ -5,7 +5,7 @@ import { alt, images } from "@/lib/images";
 export default function Hero() {
   return (
     <section id="start" className="bg-[var(--alt-bg)]">
-      <div className="mx-auto max-w-[120rem] px-6 pt-40 lg:px-10 lg:pt-52">
+      <div className="mx-auto max-w-6xl px-6 pt-40 lg:px-10 lg:pt-52">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="text-5xl font-semibold leading-[1.06] tracking-tight text-[var(--alt-ink)] sm:text-6xl lg:text-[4.25rem]">
             {brand.claim}
@@ -23,7 +23,7 @@ export default function Hero() {
             priority
             quality={80}
             className="object-cover object-center"
-            sizes="(min-width: 1920px) 120rem, 100vw"
+            sizes="(min-width: 1024px) 72rem, 100vw"
           />
         </div>
       </div>
