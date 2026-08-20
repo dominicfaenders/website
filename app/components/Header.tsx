@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Logo from "@/app/components/Logo";
 import { mainNav } from "@/lib/navigation";
 
 function HeaderNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeId, setActiveId] = useState("start");
+  const [pill, setPill] = useState<{ left: number; width: number } | null>(null);
+  const navRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -24,23 +26,46 @@ function HeaderNav() {
 
   const onHome = pathname === "/";
 
+  const movePill = (element: HTMLElement) => {
+    const nav = navRef.current;
+    if (!nav) return;
+    const navBox = nav.getBoundingClientRect();
+    const itemBox = element.getBoundingClientRect();
+    setPill({ left: itemBox.left - navBox.left, width: itemBox.width });
+  };
+
   return (
     <header className="fixed top-0 right-0 left-0 z-50 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-10 lg:py-5">
         <Logo variant="dark" href="/#start" />
 
         <div className="flex items-center gap-3">
-          <nav className="hidden items-center gap-8 xl:flex xl:mr-6">
+          <nav
+            ref={navRef}
+            className="relative hidden items-center xl:mr-6 xl:flex"
+            onMouseLeave={() => setPill(null)}
+          >
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute top-1/2 h-9 -translate-y-1/2 rounded-full bg-[#f5f5f7] transition-[left,width,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              style={{
+                left: pill?.left ?? 0,
+                width: pill?.width ?? 0,
+                opacity: pill ? 1 : 0,
+              }}
+            />
             {mainNav.map((link) => {
               const isActive = onHome && activeId === link.id;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-[17px] font-semibold tracking-[-0.01em] transition-colors ${
+                  onMouseEnter={(event) => movePill(event.currentTarget)}
+                  onFocus={(event) => movePill(event.currentTarget)}
+                  className={`relative z-10 px-3.5 py-1.5 text-[17px] font-semibold tracking-[-0.01em] transition-colors duration-300 ${
                     isActive
                       ? "text-[var(--alt-ink)]"
-                      : "text-[#424245] hover:text-[var(--alt-ink)]"
+                      : "text-[#6e6e73] hover:text-[var(--alt-ink)]"
                   }`}
                 >
                   {link.label}
@@ -52,7 +77,7 @@ function HeaderNav() {
             href="https://app.treuhans.de/login"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center justify-center rounded-full bg-[var(--alt-ink)] px-5 py-2.5 text-[17px] font-semibold tracking-[-0.01em] text-white transition-all hover:scale-[1.02] sm:inline-flex"
+            className="hidden items-center justify-center rounded-full bg-[var(--alt-ink)] px-5 py-2.5 text-[17px] font-semibold tracking-[-0.01em] text-white transition-transform duration-300 hover:scale-[1.04] sm:inline-flex"
           >
             Login
           </a>
@@ -88,7 +113,7 @@ function HeaderNav() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="block text-2xl font-semibold tracking-tight text-[var(--alt-ink)]"
+                  className="block text-2xl font-semibold tracking-tight text-[var(--alt-ink)] transition-transform duration-300 hover:translate-x-1"
                 >
                   {link.label}
                 </Link>
