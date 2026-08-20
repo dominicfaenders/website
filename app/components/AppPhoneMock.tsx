@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { alt, images } from "@/lib/images";
 
-type Screen = "home" | "tickets" | "ticket" | "academy" | "video";
-type Target = "tickets" | "ticket" | "academy" | "video" | "back";
+type Screen = "home" | "tickets" | "ticket" | "folder" | "academy" | "video";
+type Target = "tickets" | "ticket" | "folder" | "academy" | "video" | "back";
 
 type Step = {
   screen: Screen;
@@ -27,7 +27,13 @@ const steps: Step[] = [
   { screen: "tickets", hold: 380 },
   { screen: "tickets", target: "back", hold: 400 },
   { screen: "tickets", target: "back", tap: true, hold: 200 },
-  { screen: "home", hold: 550 },
+  { screen: "home", hold: 500 },
+  { screen: "home", target: "folder", hold: 560 },
+  { screen: "home", target: "folder", tap: true, hold: 200 },
+  { screen: "folder", hold: 1400 },
+  { screen: "folder", target: "back", hold: 420 },
+  { screen: "folder", target: "back", tap: true, hold: 200 },
+  { screen: "home", hold: 500 },
   { screen: "home", target: "academy", hold: 580 },
   { screen: "home", target: "academy", tap: true, hold: 200 },
   { screen: "academy", hold: 850 },
@@ -117,6 +123,13 @@ function HomeScreen() {
           <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
         </div>
         <div
+          data-tap="folder"
+          className="flex items-center justify-between rounded-xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-black/5"
+        >
+          <span className="text-[11px] font-medium text-[#1d1d1f]">Dokumentenordner</span>
+          <span className="text-[11px] text-[#6e6e73]">8 Dateien</span>
+        </div>
+        <div
           data-tap="academy"
           className="flex items-center justify-between rounded-xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-black/5"
         >
@@ -135,14 +148,9 @@ function TicketsScreen() {
       <h3 className="text-[17px] font-semibold tracking-tight text-[#1d1d1f]">Tickets</h3>
       <p className="mt-1 text-[11px] text-[#6e6e73]">Offene Entscheidungen</p>
       <div className="mt-3 space-y-2">
-        <div data-tap="ticket" className="flex items-center gap-2.5 rounded-xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-black/5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-50 text-[13px]">
-            📁
-          </span>
-          <div>
-            <p className="text-[11px] font-semibold text-[#1d1d1f]">Dokumentenordner</p>
-            <p className="mt-0.5 text-[10px] text-[#6e6e73]">Burgplatz 2 · 8 Dateien</p>
-          </div>
+        <div data-tap="ticket" className="rounded-xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-black/5">
+          <p className="text-[11px] font-semibold text-[#1d1d1f]">Investitionsentscheidung freigeben</p>
+          <p className="mt-0.5 text-[10px] text-[#6e6e73]">Burgplatz 2 · Freigabe nötig</p>
         </div>
         <div className="rounded-xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-black/5">
           <p className="text-[11px] font-semibold text-[#1d1d1f]">Instandhaltung Dach</p>
@@ -158,6 +166,30 @@ function TicketsScreen() {
 }
 
 function TicketScreen() {
+  return (
+    <div className="px-4 pt-3">
+      <Back label="Tickets" />
+      <p className="text-[10px] font-medium tracking-[0.12em] text-amber-600 uppercase">Offen</p>
+      <h3 className="mt-1 text-[16px] font-semibold tracking-tight text-[#1d1d1f]">
+        Investitionsentscheidung freigeben
+      </h3>
+      <p className="mt-2 text-[11px] leading-relaxed text-[#6e6e73]">
+        Modernisierung im Treppenhaus. Bitte prüfe das Angebot und gib die Investition frei.
+      </p>
+      <div className="mt-4 rounded-xl bg-white px-3 py-3 shadow-sm ring-1 ring-black/5">
+        <p className="text-[10px] text-[#6e6e73]">Objekt</p>
+        <p className="mt-0.5 text-[12px] font-semibold text-[#1d1d1f]">Burgplatz 2 · WE 04</p>
+        <p className="mt-3 text-[10px] text-[#6e6e73]">Investitionsvolumen</p>
+        <p className="mt-0.5 text-[12px] font-semibold text-[#1d1d1f]">18.400 €</p>
+      </div>
+      <div className="mt-3 rounded-full bg-[#1d1d1f] px-3 py-2.5 text-center text-[11px] font-medium text-white">
+        Jetzt freigeben
+      </div>
+    </div>
+  );
+}
+
+function FolderScreen() {
   const files = [
     "Teilungserklärung.pdf",
     "Wirtschaftsplan 2026.pdf",
@@ -168,19 +200,10 @@ function TicketScreen() {
 
   return (
     <div className="px-4 pt-3">
-      <Back label="Tickets" />
-      <div className="flex items-center gap-2.5">
-        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 text-[16px]">
-          📁
-        </span>
-        <div>
-          <h3 className="text-[16px] font-semibold tracking-tight text-[#1d1d1f]">
-            Dokumentenordner
-          </h3>
-          <p className="text-[10px] text-[#6e6e73]">Burgplatz 2 · 8 Dateien</p>
-        </div>
-      </div>
-      <div className="mt-4 space-y-2">
+      <Back label="Home" />
+      <h3 className="text-[17px] font-semibold tracking-tight text-[#1d1d1f]">Dokumentenordner</h3>
+      <p className="mt-1 text-[11px] text-[#6e6e73]">Burgplatz 2 · 8 Dateien</p>
+      <div className="mt-3 space-y-2">
         {files.map((file) => (
           <div key={file} className="rounded-xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-black/5">
             <p className="text-[11px] font-medium text-[#1d1d1f]">{file}</p>
@@ -281,6 +304,7 @@ const screens: Record<Screen, () => ReactNode> = {
   home: HomeScreen,
   tickets: TicketsScreen,
   ticket: TicketScreen,
+  folder: FolderScreen,
   academy: AcademyScreen,
   video: VideoScreen,
 };
