@@ -10,7 +10,7 @@ export const footerNav = [
   { href: "/#karriere", label: "Karriere", id: "karriere" },
   {
     href: "https://app.treuhans.de/login",
-    label: "Kundenportal",
+    label: "treuhans App",
     id: "kundenportal",
     external: true,
   },
