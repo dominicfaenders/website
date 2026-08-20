@@ -5,7 +5,7 @@ import { alt, images } from "@/lib/images";
 export default function Hero() {
   return (
     <section id="start" className="bg-[var(--alt-bg)]">
-      <div className="mx-auto max-w-[90rem] px-6 pt-28 lg:px-10 lg:pt-32">
+      <div className="mx-auto max-w-[120rem] px-6 pt-28 lg:px-10 lg:pt-32">
         <div className="relative min-h-[72vh] overflow-hidden rounded-2xl lg:min-h-[80vh]">
           <Image
             src={images.leipzigSkyline}
@@ -14,7 +14,7 @@ export default function Hero() {
             priority
             quality={80}
             className="object-cover object-center"
-            sizes="(min-width: 1440px) 90rem, 100vw"
+            sizes="(min-width: 1920px) 120rem, 100vw"
           />
           <div className="absolute inset-0 bg-ink/55" />
 
