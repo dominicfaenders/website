@@ -135,9 +135,14 @@ function TicketsScreen() {
       <h3 className="text-[17px] font-semibold tracking-tight text-[#1d1d1f]">Tickets</h3>
       <p className="mt-1 text-[11px] text-[#6e6e73]">Offene Entscheidungen</p>
       <div className="mt-3 space-y-2">
-        <div data-tap="ticket" className="rounded-xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-black/5">
-          <p className="text-[11px] font-semibold text-[#1d1d1f]">Betriebskosten prüfen</p>
-          <p className="mt-0.5 text-[10px] text-[#6e6e73]">Burgplatz 2 · Freigabe nötig</p>
+        <div data-tap="ticket" className="flex items-center gap-2.5 rounded-xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-black/5">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-50 text-[13px]">
+            📁
+          </span>
+          <div>
+            <p className="text-[11px] font-semibold text-[#1d1d1f]">Dokumentenordner</p>
+            <p className="mt-0.5 text-[10px] text-[#6e6e73]">Burgplatz 2 · 8 Dateien</p>
+          </div>
         </div>
         <div className="rounded-xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-black/5">
           <p className="text-[11px] font-semibold text-[#1d1d1f]">Instandhaltung Dach</p>
@@ -153,24 +158,35 @@ function TicketsScreen() {
 }
 
 function TicketScreen() {
+  const files = [
+    "Teilungserklärung.pdf",
+    "Wirtschaftsplan 2026.pdf",
+    "Beschlussprotokoll.pdf",
+    "Grundbuchauszug.pdf",
+    "Versicherung.pdf",
+  ];
+
   return (
     <div className="px-4 pt-3">
       <Back label="Tickets" />
-      <p className="text-[10px] font-medium tracking-[0.12em] text-amber-600 uppercase">Offen</p>
-      <h3 className="mt-1 text-[17px] font-semibold tracking-tight text-[#1d1d1f]">
-        Betriebskosten prüfen
-      </h3>
-      <p className="mt-2 text-[11px] leading-relaxed text-[#6e6e73]">
-        Die Abrechnung 2025 liegt vor. Bitte prüfe die Positionen und gib sie frei.
-      </p>
-      <div className="mt-4 rounded-xl bg-white px-3 py-3 shadow-sm ring-1 ring-black/5">
-        <p className="text-[10px] text-[#6e6e73]">Objekt</p>
-        <p className="mt-0.5 text-[12px] font-semibold text-[#1d1d1f]">Burgplatz 2 · WE 04</p>
-        <p className="mt-3 text-[10px] text-[#6e6e73]">Betrag</p>
-        <p className="mt-0.5 text-[12px] font-semibold text-[#1d1d1f]">1.284,60 €</p>
+      <div className="flex items-center gap-2.5">
+        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 text-[16px]">
+          📁
+        </span>
+        <div>
+          <h3 className="text-[16px] font-semibold tracking-tight text-[#1d1d1f]">
+            Dokumentenordner
+          </h3>
+          <p className="text-[10px] text-[#6e6e73]">Burgplatz 2 · 8 Dateien</p>
+        </div>
       </div>
-      <div className="mt-3 rounded-full bg-[#1d1d1f] px-3 py-2.5 text-center text-[11px] font-medium text-white">
-        Jetzt freigeben
+      <div className="mt-4 space-y-2">
+        {files.map((file) => (
+          <div key={file} className="rounded-xl bg-white px-3 py-2.5 shadow-sm ring-1 ring-black/5">
+            <p className="text-[11px] font-medium text-[#1d1d1f]">{file}</p>
+            <p className="mt-0.5 text-[10px] text-[#6e6e73]">PDF · Bereit</p>
+          </div>
+        ))}
       </div>
     </div>
   );
