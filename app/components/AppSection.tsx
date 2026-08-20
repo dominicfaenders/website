@@ -1,4 +1,5 @@
 import AppPhoneMock from "./AppPhoneMock";
+import TypewriterHeading from "./TypewriterHeading";
 import { treuhansApp } from "@/lib/content";
 
 export default function AppSection() {
@@ -10,12 +11,16 @@ export default function AppSection() {
             <p className="text-[13px] font-medium tracking-[0.06em] text-[var(--alt-muted)] uppercase">
               {treuhansApp.eyebrow}
             </p>
-            <h2 className="mt-4 max-w-xl text-4xl font-semibold tracking-tight text-[var(--alt-ink)] sm:text-5xl">
-              {treuhansApp.title}
-            </h2>
-            <p className="mt-5 max-w-lg text-lg leading-relaxed text-[var(--alt-muted)]">
-              {treuhansApp.description}
-            </p>
+            <TypewriterHeading
+              as="h2"
+              text={treuhansApp.title}
+              startWhenVisible
+              className="mt-4 max-w-xl text-4xl font-semibold tracking-tight text-[var(--alt-ink)] sm:text-5xl"
+            >
+              <p className="mt-5 max-w-lg text-lg leading-relaxed text-[var(--alt-muted)]">
+                {treuhansApp.description}
+              </p>
+            </TypewriterHeading>
 
             <div className="mt-10 grid gap-8 sm:grid-cols-2">
               {treuhansApp.features.map((feature) => (
