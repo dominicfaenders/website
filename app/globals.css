@@ -108,3 +108,31 @@ body {
 .alt-reveal-delay-2 {
   animation-delay: 0.24s;
 }
+
+@keyframes claim-word {
+  from {
+    opacity: 0;
+    transform: translateY(0.55em);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.claim-word {
+  animation: claim-word 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.claim-subline {
+  animation: alt-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .claim-word,
+  .claim-subline {
+    animation: none;
+  }
+}
