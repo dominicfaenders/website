@@ -32,7 +32,7 @@ export default function AppPhoneMock() {
           { transform: `translate3d(0, ${-max}px, 0)` },
         ],
         {
-          duration: 18000,
+          duration: 11000,
           easing: "linear",
           iterations: Number.POSITIVE_INFINITY,
           direction: "alternate",
