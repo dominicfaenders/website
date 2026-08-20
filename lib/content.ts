@@ -220,15 +220,12 @@ export const jobOpenings = [
   {
     id: "property-manager",
     title: "Property Manager (m/w/d)",
-    teaser:
-      "Eigenverantwortliche Betreuung eines Objektportfolios — von Instandsetzung und Budgets bis zu Eigentümerversammlungen.",
     tasks: [
       "Eigenverantwortliche und strategische Betreuung eines eigenen Objektportfolios (je nach Schwerpunkt WEG-Mandate oder Miet- und Sondereigentumsverwaltungen)",
       "Beauftragung und Betreuung von Instandsetzungsmaßnahmen",
       "Vorbereitung von Entscheidungsvorlagen und Steuerung von externen Dienstleistern",
       "Verantwortung für die Einhaltung der kaufmännischen Budgets und wirtschaftlicher Objektstrategien",
       "Durchführung von protokollierten Objektbegehungen und Baustellenterminen",
-      "ggf. Durchführung von Eigentümerversammlungen, überwiegend online",
     ],
     profile: [
       "Abgeschlossene Berufsausbildung wie beispielsweise Immobilienkauffrau/Immobilienkaufmann, Immobilienassistent, Bankkaufmann (m/w/d). Berufseinsteiger sind willkommen!",

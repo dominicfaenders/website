@@ -24,9 +24,6 @@ export default function KarriereSection() {
                   <h3 className="text-2xl font-semibold tracking-tight text-[var(--alt-ink)]">
                     {job.title}
                   </h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-[var(--alt-muted)]">
-                    {job.teaser}
-                  </p>
                 </div>
                 <a
                   href={`mailto:${company.email}?subject=Bewerbung%3A%20${encodeURIComponent(job.title)}`}

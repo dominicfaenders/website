@@ -7,7 +7,6 @@ export default function JobOpeningsGrid() {
       {jobOpenings.map((job) => (
         <article key={job.id} className="flex flex-col bg-forest p-8 lg:p-10">
           <h3 className="text-lg font-semibold text-warm-white">{job.title}</h3>
-          <p className="mt-3 text-sm leading-relaxed text-warm-white-soft">{job.teaser}</p>
 
           <details className="group mt-6 border border-border bg-forest-elevated">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-[11px] font-medium tracking-[0.16em] uppercase text-gold transition-colors hover:text-gold-light [&::-webkit-details-marker]:hidden">
