@@ -24,9 +24,9 @@ function AppPhoneMock() {
               <Image
                 src="/treuhans.svg"
                 alt=""
-                width={88}
-                height={22}
-                className="h-4 w-auto"
+                width={110}
+                height={28}
+                className="h-5 w-auto"
               />
               <span className="text-[10px] font-medium text-[#6e6e73]">Portal</span>
             </div>

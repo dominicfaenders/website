@@ -20,7 +20,7 @@ export default function Logo({ variant = "light", className = "", href = "/#star
         width={168}
         height={42}
         priority
-        className={`h-8 w-auto sm:h-9 ${variant === "light" ? "brightness-0 invert" : ""}`}
+        className={`h-9 w-auto sm:h-10 ${variant === "light" ? "brightness-0 invert" : ""}`}
       />
     </Link>
   );
