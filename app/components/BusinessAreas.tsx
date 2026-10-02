@@ -19,7 +19,7 @@ export default function BusinessAreas() {
 
         <div className="mt-20 grid gap-12 lg:grid-cols-2 lg:gap-10">
           {businessAreas.map((area) => (
-            <div key={area.id} id={area.id}>
+            <div key={area.id} id={area.id} className="flex h-full flex-col">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[var(--alt-bg-subtle)]">
                 <Image
                   src={area.image}
@@ -29,7 +29,7 @@ export default function BusinessAreas() {
                   sizes="(min-width: 1024px) 50vw, 100vw"
                 />
               </div>
-              <div className="mt-8">
+              <div className="mt-8 flex flex-1 flex-col">
                 <h3 className="text-3xl font-semibold tracking-tight text-[var(--alt-ink)]">
                   {area.title}
                 </h3>
@@ -37,14 +37,14 @@ export default function BusinessAreas() {
                 <p className="mt-5 text-[15px] leading-relaxed text-[var(--alt-muted)]">
                   {area.description}
                 </p>
-                <ul className="mt-6 space-y-3">
+                <ul className="mt-6 space-y-3 text-left lg:mt-auto lg:pt-6">
                   {area.highlights.slice(0, 4).map((item) => (
                     <li
                       key={item}
                       className="flex items-start gap-3 text-[15px] leading-relaxed text-[var(--alt-ink)]"
                     >
                       <span className="mt-2 block h-1 w-1 shrink-0 rounded-full bg-[var(--alt-ink)]" />
-                      {item}
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>

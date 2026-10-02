@@ -24,7 +24,7 @@ export const businessAreasIntro = {
   eyebrow: "Service",
   title: "Wir nehmen dich nach dem Kauf an die Hand.",
   description:
-    "Wenn du über einen Kapitalanlagevertrieb gekauft hast, geht es bei uns weiter. Wir begleiten dich über den gesamten Lebenszyklus deiner Immobilie — über 10 Jahre und darüber hinaus — mit Erfahrung, Wissen, Coaching und einer Begleitung, die weitergeht als klassische Verwaltung.",
+    "Du hast Dir eine Immobilie gekauft - bei uns geht es weiter. Wir begleiten dich über den gesamten Lebenszyklus deiner Immobilie — über 10 Jahre und darüber hinaus — mit Erfahrung, Wissen, Coaching und einer Begleitung, die weitergeht als klassische Verwaltung.",
 } as const;
 
 export const businessAreas = [
@@ -34,7 +34,7 @@ export const businessAreas = [
     title: "Begleitung",
     subtitle: "Dein Partner über den gesamten Lebenszyklus",
     description:
-      "Eine Kapitalanlage endet nicht mit dem Kauf. Wir sind dein fester Ansprechpartner für den Alltag und die Haltedauer — persönlich, vorausschauend und mit dem Blick auf dein Vermögen, nicht nur auf das einzelne Objekt.",
+      "Eine Kapitalanlage endet nicht mit dem Kauf. Wir sind dein fester Ansprechpartner für deinen Alltag und die gesamte Haltedauer — persönlich, vorausschauend und mit dem Blick auf dein Vermögen, nicht nur auf das einzelne Objekt.",
     audience: "Eigentümer · Kapitalanleger",
     href: "/?anliegen=begleitung#kontakt",
     cta: "Gespräch vereinbaren",
