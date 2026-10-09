@@ -137,4 +137,32 @@ body {
   .claim-subline {
     animation: none;
   }
+
+  .alt-reveal,
+  .alt-reveal-delay,
+  .alt-reveal-delay-2 {
+    animation: none;
+  }
+}
+
+/* Printable invite card (Visitenkartenformat ~85×55 mm scaled) */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  .invite-card {
+    width: 85mm !important;
+    min-height: 55mm !important;
+    max-width: none !important;
+    padding: 8mm !important;
+    border: 0.2mm solid #d4d4d8;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    break-inside: avoid;
+  }
 }
