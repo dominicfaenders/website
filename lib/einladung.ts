@@ -16,7 +16,12 @@ export const einladung = {
     "Gastfreundschaft, Klarheit im Umgang und ein gutes Gespür für Menschen sind bei uns keine Nebensache. Wenn du Lust hast, diese Stärken in einem anderen Umfeld einzusetzen, würden wir dich gerne unverbindlich kennenlernen.",
   ],
   closing: "Kein Bewerbungsmarathon. Nur ein ehrliches Gespräch — diskret und nur zwischen uns.",
-  ctaLabel: "Kurz melden",
+  /** Persönliche Handynummer für diskrete Erstkontaktaufnahme */
+  mobileDisplay: "0170 3007921",
+  mobileHref: "tel:+491703007921",
+  whatsappHref: "https://wa.me/491703007921",
+  ctaLabel: "WhatsApp schreiben",
+  callLabel: "Anrufen",
   secondaryLabel: "Offene Stelle ansehen",
   secondaryHref: "/#karriere",
   emailSubject: "Persönliche Einladung — Gespräch",

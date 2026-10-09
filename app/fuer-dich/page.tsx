@@ -59,16 +59,24 @@ export default function FuerDichPage() {
           {einladung.closing}
         </p>
 
-        <div className="alt-reveal alt-reveal-delay-2 mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="alt-reveal alt-reveal-delay-2 mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <a
-            href={getEinladungMailto()}
+            href={einladung.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-full bg-[var(--alt-ink)] px-7 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90"
           >
             {einladung.ctaLabel}
           </a>
+          <a
+            href={einladung.mobileHref}
+            className="inline-flex items-center justify-center rounded-full border border-[var(--alt-line)] px-7 py-3.5 text-[14px] font-medium text-[var(--alt-ink)] transition-colors hover:border-[var(--alt-ink)]"
+          >
+            {einladung.callLabel} · {einladung.mobileDisplay}
+          </a>
           <Link
             href={einladung.secondaryHref}
-            className="inline-flex items-center justify-center rounded-full border border-[var(--alt-line)] px-7 py-3.5 text-[14px] font-medium text-[var(--alt-ink)] transition-colors hover:border-[var(--alt-ink)]"
+            className="inline-flex items-center justify-center rounded-full border border-[var(--alt-line)] px-7 py-3.5 text-[14px] font-medium text-[var(--alt-muted)] transition-colors hover:border-[var(--alt-ink)] hover:text-[var(--alt-ink)]"
           >
             {einladung.secondaryLabel}
           </Link>
@@ -78,17 +86,17 @@ export default function FuerDichPage() {
           {company.address}, {company.city}
           <br />
           <a
-            href={`mailto:${company.email}`}
-            className="underline decoration-[var(--alt-line)] underline-offset-4 transition-colors hover:decoration-[var(--alt-ink)]"
+            href={einladung.mobileHref}
+            className="font-medium text-[var(--alt-ink)] underline decoration-[var(--alt-line)] underline-offset-4 transition-colors hover:decoration-[var(--alt-ink)]"
           >
-            {company.email}
+            {einladung.mobileDisplay}
           </a>
           {" · "}
           <a
-            href={company.phoneHref}
+            href={getEinladungMailto()}
             className="underline decoration-[var(--alt-line)] underline-offset-4 transition-colors hover:decoration-[var(--alt-ink)]"
           >
-            {company.phone}
+            {company.email}
           </a>
         </p>
       </div>
